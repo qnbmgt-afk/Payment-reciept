@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>Official Wire Transfer Receipt | Bank of America</title>
+    <title>Official Wire Transfer Receipt | BNP Paribas</title>
     <style>
         * {
             margin: 0;
@@ -53,7 +53,7 @@
 
         .logo-wrapper {
             display: inline-block;
-            max-width: 280px;
+            max-width: 300px;
             width: 100%;
         }
 
@@ -64,7 +64,7 @@
             margin: 0 auto;
         }
 
-        /* branch info - subtle, placed right after logo but separate */
+        /* branch info - subtle, placed right after logo */
         .branch-info {
             text-align: center;
             margin-top: 1rem;
@@ -277,6 +277,16 @@
             line-height: 1.4;
         }
 
+        /* green accent for BNP Paribas touch (subtle) */
+        .bnp-accent {
+            color: #00965e;
+        }
+        .status-badge.bnp-badge {
+            background: #e6f4ef;
+            color: #00965e;
+            border-color: #b8dfcf;
+        }
+
         /* responsive */
         @media (max-width: 800px) {
             body {
@@ -315,22 +325,24 @@
 <div class="receipt-container">
     <div class="receipt">
         <div class="receipt-body">
-            <!-- Logo centered - Bank of America emblem with name included -->
+            <!-- Logo centered - BNP Paribas (green square with wordmark) -->
             <div class="logo-section">
                 <div class="logo-wrapper">
-                    <img src="https://logos-world.net/wp-content/uploads/2020/11/Bank-of-America-Emblem.png" 
-                         alt="Bank of America Logo" 
-                         style="width: 100%; height: auto; max-width: 260px; margin: 0 auto;">
+                    <img src="https://upload.wikimedia.org/wikipedia/en/thumb/3/32/BNP_Paribas_logo.svg/1200px-BNP_Paribas_logo.svg.png" 
+                         alt="BNP Paribas Logo" 
+                         style="width: 100%; height: auto; max-width: 280px; margin: 0 auto;"
+                         onerror="this.onerror=null; this.src='https://1000logos.net/wp-content/uploads/2020/07/BNP-Paribas-logo.jpg';">
                 </div>
-                <!-- Branch info sits directly below logo - no extra bank name repetition -->
+                <!-- Branch info below logo - Paris Headquarters -->
                 <div class="branch-info">
-                    <div class="branch-name">Menlo Park · California</div>
-                    <div class="branch-address">675 Santa Cruz Avenue, Menlo Park, CA 94025</div>
+                    <div class="branch-name">Paris Headquarters · France</div>
+                    <div class="branch-address">16 Boulevard des Italiens, 75009 Paris, France</div>
+                    <div class="branch-address" style="font-size:0.7rem;">SWIFT: BNPAFRPP | SIREN: 662 042 449</div>
                 </div>
             </div>
 
-            <!-- Status badge -->
-            <div class="status-badge">
+            <!-- Status badge with subtle BNP green accent -->
+            <div class="status-badge bnp-badge">
                 WIRE TRANSFER · EXECUTED & SETTLED
             </div>
 
@@ -344,15 +356,17 @@
                     </div>
                     <div class="info-card">
                         <div class="info-label">ORIGINATING BANK</div>
-                        <div class="info-value">Bank of America, N.A.</div>
-                        <div class="info-sub">Menlo Park Regional Center · Corporate Division</div>
+                        <div class="info-value">BNP Paribas</div>
+                        <div class="info-sub">Paris Headquarters · Corporate & Institutional Banking</div>
+                        <div class="info-sub" style="font-size:0.75rem;">SWIFT: BNPAFRPP | Clearing: 30004</div>
                     </div>
                 </div>
                 <div class="detail-col">
                     <div class="info-card">
                         <div class="info-label">RECIPIENT / PAYEE</div>
-                        <div class="info-value">Valentina Aragot</div>
-                        <div class="info-sub">Beneficiary Bank: Credit Suisse AG<br>Account Number: ••••2957</div>
+                        <div class="info-value">Antonio Tan</div>
+                        <div class="info-sub">Beneficiary Bank: Credit Suisse AG<br>Branch: Zurich – Paradeplatz<br>Account: ••••2957</div>
+                        <div class="info-sub" style="font-size:0.75rem; margin-top:4px;">SWIFT (Beneficiary Bank): CRESCHZZ****</div>
                     </div>
                     <div class="info-card">
                         <div class="info-label">PAYMENT REFERENCE</div>
@@ -373,7 +387,7 @@
             <div class="tx-grid">
                 <div class="tx-item">
                     <span class="tx-label">Receipt Number</span>
-                    <span class="tx-value">BOA-2026-784512</span>
+                    <span class="tx-value">BNP-2026-784512</span>
                 </div>
                 <div class="tx-item">
                     <span class="tx-label">Transaction Reference</span>
@@ -381,19 +395,19 @@
                 </div>
                 <div class="tx-item">
                     <span class="tx-label">Execution Date</span>
-                    <span class="tx-value">March 24, 2026</span>
+                    <span class="tx-value">March 30, 2026</span>
                 </div>
                 <div class="tx-item">
-                    <span class="tx-label">Settlement Time (PST)</span>
+                    <span class="tx-label">Settlement Time (CET)</span>
                     <span class="tx-value">10:42 AM</span>
                 </div>
                 <div class="tx-item">
                     <span class="tx-label">Payment Method</span>
-                    <span class="tx-value">Wire Transfer · Fedwire</span>
+                    <span class="tx-value">Wire Transfer · SWIFT gpi</span>
                 </div>
                 <div class="tx-item">
                     <span class="tx-label">Value Date</span>
-                    <span class="tx-value">March 24, 2026 (Same Day)</span>
+                    <span class="tx-value">March 30, 2026 (Same Day)</span>
                 </div>
             </div>
 
@@ -402,6 +416,7 @@
                 <div><span style="font-weight:600;">Intermediary Bank:</span> None (Direct Credit)</div>
                 <div><span style="font-weight:600;">Wire Charges:</span> Paid by Sender (OUR)</div>
                 <div><span style="font-weight:600;">Compliance:</span> OFAC / AML Verified</div>
+                <div><span style="font-weight:600;">Regulation:</span> EU & Swiss cross-border</div>
             </div>
 
             <!-- Authorization section -->
@@ -409,41 +424,41 @@
                 <div>
                     <div class="info-label" style="margin-bottom: 0;">AUTHORIZED OFFICER</div>
                     <div class="officer-info">M. Thompson</div>
-                    <div style="font-size: 0.7rem; color:#5f7f9e;">Vice President, Global Wire Operations</div>
+                    <div style="font-size: 0.7rem; color:#5f7f9e;">Vice President, Global Wire Operations · BNP Paribas Paris</div>
                 </div>
                 <div style="text-align: right;">
-                    <div class="stamp">Digital Authorization: MTH-8842-BOA</div>
-                    <div class="stamp" style="margin-top: 4px;">Electronically Certified · 03/24/2026 18:42 UTC</div>
+                    <div class="stamp">Digital Authorization: MTH-8842-BNP</div>
+                    <div class="stamp" style="margin-top: 4px;">Electronically Certified · 03/30/2026 18:42 UTC</div>
                 </div>
             </div>
 
             <!-- subtle separator -->
             <div class="separator-dash"></div>
             <div style="font-size: 0.7rem; text-align: right; font-family: monospace; color: #8c9cb0;">
-                Record ID: W9247-03A · Settlement Batch: 240326-1042PST
+                Record ID: W9247-03A · Settlement Batch: 240326-1042CET
             </div>
         </div>
 
-        <!-- FOOTER: clean, professional -->
+        <!-- FOOTER: clean, professional BNP Paribas compliance -->
         <div class="receipt-footer">
             <div class="footer-primary">
-                OFFICIAL CONFIRMATION – WIRE TRANSFER RECEIPT
+                OFFICIAL CONFIRMATION – INTERNATIONAL WIRE TRANSFER RECEIPT
             </div>
             <div class="footer-contact">
-                Bank of America, N.A. | Member FDIC | Equal Housing Lender
+                BNP Paribas | Member FDIC (US Branch) | European Banking Authority Regulated
             </div>
             <div style="font-size: 0.7rem; margin-bottom: 0.3rem;">
-                Wire Support: 1-800-446-0135 | Corporate Treasury Desk: 650-470-8200
+                Wire Support: +33 1 40 14 45 45 | Corporate Treasury: +33 1 42 98 12 34
             </div>
             <hr>
             <div class="footer-disclaimer">
                 This document constitutes a legally valid receipt for the wire transfer referenced above. Funds have been irrevocably 
-                debited from Meta Platforms, Inc. account and transmitted to Credit Suisse AG for credit to Valentina Aragot (****2957). 
-                Please retain for audit and tax records. For inquiries, contact your Bank of America relationship manager within 5 business days.
-                Receipt ID: BOA-2026-784512 is final.
+                debited from Meta Platforms, Inc. account at BNP Paribas Paris Headquarters and transmitted to Credit Suisse AG, Zurich 
+                for final credit to Antonio Tan (account ••••2957). Please retain for audit and tax records. For inquiries, contact 
+                your BNP Paribas relationship manager within 5 business days. Receipt ID: BNP-2026-784512 is final and binding.
             </div>
             <div style="margin-top: 1rem; font-size: 0.65rem; letter-spacing: 0.2px; color: #7e95b2;">
-                675 Santa Cruz Ave, Menlo Park, CA 94025 · Bank of America Menlo Park Corporate & Commercial Division
+                BNP Paribas · 16 Boulevard des Italiens, 75009 Paris, France · Corporate & Institutional Banking Division
             </div>
         </div>
     </div>
