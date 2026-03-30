@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Official Wire Transfer Receipt | Bank of America</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #eef2f5;
+            font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, 'BlinkMacSystemFont', 'Helvetica Neue', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        /* main container - full width with comfortable max-width */
+        .receipt-container {
+            width: 100%;
+            max-width: 1180px;
+            margin: 0 auto;
+        }
+
+        /* receipt card - all white, clean, spacious */
+        .receipt {
+            background: #ffffff;
+            border-radius: 2rem;
+            box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.1), 0 4px 12px rgba(0, 0, 0, 0.02);
+            overflow: hidden;
+            transition: all 0.2s;
+            border: 1px solid #eaedf2;
+        }
+
+        /* main content - generous spacing */
+        .receipt-body {
+            padding: 2.5rem 3rem 2.2rem 3rem;
+        }
+
+        /* logo section - centered, prominent, no redundant text */
+        .logo-section {
+            text-align: center;
+            margin-bottom: 2.5rem;
+            padding-bottom: 1.2rem;
+            border-bottom: 1px solid #edf2f7;
+        }
+
+        .logo-wrapper {
+            display: inline-block;
+            max-width: 280px;
+            width: 100%;
+        }
+
+        .logo-wrapper img {
+            width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+
+        /* branch info - subtle, placed right after logo but separate */
+        .branch-info {
+            text-align: center;
+            margin-top: 1rem;
+            font-size: 0.85rem;
+            color: #4a627a;
+        }
+
+        .branch-name {
+            font-weight: 600;
+            color: #2c4c6e;
+        }
+
+        .branch-address {
+            font-size: 0.75rem;
+            color: #6f8fae;
+            margin-top: 0.2rem;
+        }
+
+        /* status badge - clean */
+        .status-badge {
+            display: inline-block;
+            background: #f0f4f9;
+            color: #1e3a5f;
+            padding: 0.3rem 1.2rem;
+            border-radius: 60px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.6px;
+            margin-bottom: 2rem;
+            border: 1px solid #e0e8f0;
+            text-transform: uppercase;
+        }
+
+        /* 2 column layout with generous gap */
+        .details-split {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .detail-col {
+            flex: 1;
+            min-width: 260px;
+        }
+
+        .info-card {
+            margin-bottom: 2rem;
+        }
+
+        .info-label {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            font-weight: 700;
+            letter-spacing: 0.8px;
+            color: #6f7f8f;
+            margin-bottom: 0.6rem;
+        }
+
+        .info-value {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #121f2f;
+            line-height: 1.4;
+        }
+
+        .info-sub {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: #415a77;
+            margin-top: 6px;
+        }
+
+        /* amount block - prominent but clean */
+        .amount-block {
+            background: #fafcff;
+            border-radius: 28px;
+            padding: 1.2rem 1.8rem;
+            margin: 1rem 0 1.2rem 0;
+            border: 1px solid #eef2f8;
+        }
+
+        .amount-figure {
+            font-size: 2.6rem;
+            font-weight: 800;
+            color: #1e4668;
+            letter-spacing: -0.5px;
+            line-height: 1.1;
+        }
+
+        .amount-in-words {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: #4a627a;
+            border-left: 3px solid #8a9bb0;
+            padding-left: 1rem;
+            margin-top: 0.5rem;
+        }
+
+        .method-chip {
+            background: #eef2fa;
+            padding: 0.25rem 1rem;
+            border-radius: 30px;
+            display: inline-block;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: #1e3a5f;
+        }
+
+        /* transaction grid */
+        .tx-grid {
+            background: #f9fbfe;
+            border-radius: 1.5rem;
+            padding: 1.3rem 1.8rem;
+            margin: 1.6rem 0 1.2rem 0;
+            border: 1px solid #edf2f7;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 1.2rem;
+        }
+
+        .tx-item {
+            font-size: 0.85rem;
+            min-width: 180px;
+        }
+
+        .tx-label {
+            font-weight: 600;
+            color: #5c6e82;
+            display: block;
+            margin-bottom: 4px;
+            font-size: 0.7rem;
+            letter-spacing: 0.4px;
+            text-transform: uppercase;
+        }
+
+        .tx-value {
+            font-weight: 700;
+            color: #1c2e42;
+            font-family: 'SF Mono', 'Menlo', monospace;
+            font-size: 0.9rem;
+        }
+
+        /* authorization section */
+        .auth-section {
+            margin-top: 1.8rem;
+            padding: 1rem 1.5rem;
+            background: #ffffff;
+            border-radius: 1.25rem;
+            border: 1px solid #eef2f8;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.02);
+        }
+
+        .officer-info {
+            font-weight: 600;
+            color: #1e3a5f;
+        }
+
+        .stamp {
+            font-family: monospace;
+            font-size: 0.7rem;
+            color: #6f8fae;
+        }
+
+        /* separator */
+        .separator-dash {
+            width: 100%;
+            height: 1px;
+            background: repeating-linear-gradient(90deg, #cbdae9, #cbdae9 6px, transparent 6px, transparent 12px);
+            margin: 1rem 0;
+        }
+
+        /* footer - clean, professional */
+        .receipt-footer {
+            background: #f8fafd;
+            padding: 1.5rem 2.5rem 2rem 2.5rem;
+            border-top: 1px solid #e9edf2;
+            text-align: center;
+        }
+
+        .footer-primary {
+            font-weight: 600;
+            font-size: 0.8rem;
+            color: #2c5a7a;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-contact {
+            font-size: 0.7rem;
+            color: #6c86a3;
+            margin-bottom: 0.5rem;
+        }
+
+        hr {
+            margin: 0.8rem 0;
+            border: none;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        .footer-disclaimer {
+            font-size: 0.68rem;
+            color: #7b8ea8;
+            max-width: 85%;
+            margin: 0.5rem auto 0;
+            line-height: 1.4;
+        }
+
+        /* responsive */
+        @media (max-width: 800px) {
+            body {
+                padding: 1rem;
+            }
+            .receipt-body {
+                padding: 1.5rem;
+            }
+            .tx-grid {
+                flex-direction: column;
+            }
+            .amount-figure {
+                font-size: 2rem;
+            }
+            .footer-disclaimer {
+                max-width: 100%;
+            }
+            .logo-wrapper {
+                max-width: 200px;
+            }
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            .receipt {
+                border-radius: 0;
+                box-shadow: none;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="receipt-container">
+    <div class="receipt">
+        <div class="receipt-body">
+            <!-- Logo centered - Bank of America emblem with name included -->
+            <div class="logo-section">
+                <div class="logo-wrapper">
+                    <img src="https://logos-world.net/wp-content/uploads/2020/11/Bank-of-America-Emblem.png" 
+                         alt="Bank of America Logo" 
+                         style="width: 100%; height: auto; max-width: 260px; margin: 0 auto;">
+                </div>
+                <!-- Branch info sits directly below logo - no extra bank name repetition -->
+                <div class="branch-info">
+                    <div class="branch-name">Menlo Park · California</div>
+                    <div class="branch-address">675 Santa Cruz Avenue, Menlo Park, CA 94025</div>
+                </div>
+            </div>
+
+            <!-- Status badge -->
+            <div class="status-badge">
+                WIRE TRANSFER · EXECUTED & SETTLED
+            </div>
+
+            <!-- SENDER & RECIPIENT sections -->
+            <div class="details-split">
+                <div class="detail-col">
+                    <div class="info-card">
+                        <div class="info-label">SENDER / PAYER</div>
+                        <div class="info-value">Meta Platforms, Inc.</div>
+                        <div class="info-sub">1 Hacker Way, Menlo Park, CA 94025, USA</div>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-label">ORIGINATING BANK</div>
+                        <div class="info-value">Bank of America, N.A.</div>
+                        <div class="info-sub">Menlo Park Regional Center · Corporate Division</div>
+                    </div>
+                </div>
+                <div class="detail-col">
+                    <div class="info-card">
+                        <div class="info-label">RECIPIENT / PAYEE</div>
+                        <div class="info-value">Valentina Aragot</div>
+                        <div class="info-sub">Beneficiary Bank: Credit Suisse AG<br>Account Number: ••••2957</div>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-label">PAYMENT REFERENCE</div>
+                        <div class="info-value"><span class="method-chip">Promotional Lottery Payout</span></div>
+                        <div class="info-sub" style="margin-top: 5px;">META-PROMO-LOT-0326</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- AMOUNT block -->
+            <div class="amount-block">
+                <div class="info-label" style="margin-bottom: 0.2rem;">TRANSFER AMOUNT</div>
+                <div class="amount-figure">$20,000,000.00 USD</div>
+                <div class="amount-in-words">Twenty Million United States Dollars</div>
+            </div>
+
+            <!-- Transaction info grid -->
+            <div class="tx-grid">
+                <div class="tx-item">
+                    <span class="tx-label">Receipt Number</span>
+                    <span class="tx-value">BOA-2026-784512</span>
+                </div>
+                <div class="tx-item">
+                    <span class="tx-label">Transaction Reference</span>
+                    <span class="tx-value">TXN-9F3K-72LQ-8841</span>
+                </div>
+                <div class="tx-item">
+                    <span class="tx-label">Execution Date</span>
+                    <span class="tx-value">March 24, 2026</span>
+                </div>
+                <div class="tx-item">
+                    <span class="tx-label">Settlement Time (PST)</span>
+                    <span class="tx-value">10:42 AM</span>
+                </div>
+                <div class="tx-item">
+                    <span class="tx-label">Payment Method</span>
+                    <span class="tx-value">Wire Transfer · Fedwire</span>
+                </div>
+                <div class="tx-item">
+                    <span class="tx-label">Value Date</span>
+                    <span class="tx-value">March 24, 2026 (Same Day)</span>
+                </div>
+            </div>
+
+            <!-- Additional details -->
+            <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem; font-size: 0.75rem; color: #4a627a; margin-bottom: 1.4rem;">
+                <div><span style="font-weight:600;">Intermediary Bank:</span> None (Direct Credit)</div>
+                <div><span style="font-weight:600;">Wire Charges:</span> Paid by Sender (OUR)</div>
+                <div><span style="font-weight:600;">Compliance:</span> OFAC / AML Verified</div>
+            </div>
+
+            <!-- Authorization section -->
+            <div class="auth-section">
+                <div>
+                    <div class="info-label" style="margin-bottom: 0;">AUTHORIZED OFFICER</div>
+                    <div class="officer-info">M. Thompson</div>
+                    <div style="font-size: 0.7rem; color:#5f7f9e;">Vice President, Global Wire Operations</div>
+                </div>
+                <div style="text-align: right;">
+                    <div class="stamp">Digital Authorization: MTH-8842-BOA</div>
+                    <div class="stamp" style="margin-top: 4px;">Electronically Certified · 03/24/2026 18:42 UTC</div>
+                </div>
+            </div>
+
+            <!-- subtle separator -->
+            <div class="separator-dash"></div>
+            <div style="font-size: 0.7rem; text-align: right; font-family: monospace; color: #8c9cb0;">
+                Record ID: W9247-03A · Settlement Batch: 240326-1042PST
+            </div>
+        </div>
+
+        <!-- FOOTER: clean, professional -->
+        <div class="receipt-footer">
+            <div class="footer-primary">
+                OFFICIAL CONFIRMATION – WIRE TRANSFER RECEIPT
+            </div>
+            <div class="footer-contact">
+                Bank of America, N.A. | Member FDIC | Equal Housing Lender
+            </div>
+            <div style="font-size: 0.7rem; margin-bottom: 0.3rem;">
+                Wire Support: 1-800-446-0135 | Corporate Treasury Desk: 650-470-8200
+            </div>
+            <hr>
+            <div class="footer-disclaimer">
+                This document constitutes a legally valid receipt for the wire transfer referenced above. Funds have been irrevocably 
+                debited from Meta Platforms, Inc. account and transmitted to Credit Suisse AG for credit to Valentina Aragot (****2957). 
+                Please retain for audit and tax records. For inquiries, contact your Bank of America relationship manager within 5 business days.
+                Receipt ID: BOA-2026-784512 is final.
+            </div>
+            <div style="margin-top: 1rem; font-size: 0.65rem; letter-spacing: 0.2px; color: #7e95b2;">
+                675 Santa Cruz Ave, Menlo Park, CA 94025 · Bank of America Menlo Park Corporate & Commercial Division
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
