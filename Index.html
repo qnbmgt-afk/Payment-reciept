@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>Official Wire Transfer Receipt | BNP Paribas</title>
+    <title>Official Wire Transfer Receipt | BNP Paribas | $30,000,000 USD</title>
     <style>
         * {
             margin: 0;
@@ -21,29 +21,24 @@
             padding: 2rem;
         }
 
-        /* main container - full width with comfortable max-width */
         .receipt-container {
             width: 100%;
             max-width: 1180px;
             margin: 0 auto;
         }
 
-        /* receipt card - all white, clean, spacious */
         .receipt {
             background: #ffffff;
             border-radius: 2rem;
             box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.1), 0 4px 12px rgba(0, 0, 0, 0.02);
             overflow: hidden;
-            transition: all 0.2s;
             border: 1px solid #eaedf2;
         }
 
-        /* main content - generous spacing */
         .receipt-body {
             padding: 2.5rem 3rem 2.2rem 3rem;
         }
 
-        /* logo section - centered, prominent, no redundant text */
         .logo-section {
             text-align: center;
             margin-bottom: 2.5rem;
@@ -64,7 +59,6 @@
             margin: 0 auto;
         }
 
-        /* branch info - subtle, placed right after logo */
         .branch-info {
             text-align: center;
             margin-top: 1rem;
@@ -83,22 +77,20 @@
             margin-top: 0.2rem;
         }
 
-        /* status badge - clean */
         .status-badge {
             display: inline-block;
-            background: #f0f4f9;
-            color: #1e3a5f;
+            background: #e6f4ef;
+            color: #00965e;
             padding: 0.3rem 1.2rem;
             border-radius: 60px;
             font-size: 0.7rem;
             font-weight: 700;
             letter-spacing: 0.6px;
             margin-bottom: 2rem;
-            border: 1px solid #e0e8f0;
+            border: 1px solid #b8dfcf;
             text-transform: uppercase;
         }
 
-        /* 2 column layout with generous gap */
         .details-split {
             display: flex;
             flex-wrap: wrap;
@@ -138,7 +130,6 @@
             margin-top: 6px;
         }
 
-        /* amount block - prominent but clean */
         .amount-block {
             background: #fafcff;
             border-radius: 28px;
@@ -159,7 +150,7 @@
             font-size: 0.9rem;
             font-weight: 500;
             color: #4a627a;
-            border-left: 3px solid #8a9bb0;
+            border-left: 3px solid #00965e;
             padding-left: 1rem;
             margin-top: 0.5rem;
         }
@@ -174,7 +165,6 @@
             color: #1e3a5f;
         }
 
-        /* transaction grid */
         .tx-grid {
             background: #f9fbfe;
             border-radius: 1.5rem;
@@ -209,7 +199,6 @@
             font-size: 0.9rem;
         }
 
-        /* authorization section */
         .auth-section {
             margin-top: 1.8rem;
             padding: 1rem 1.5rem;
@@ -234,7 +223,6 @@
             color: #6f8fae;
         }
 
-        /* separator */
         .separator-dash {
             width: 100%;
             height: 1px;
@@ -242,7 +230,6 @@
             margin: 1rem 0;
         }
 
-        /* footer - clean, professional */
         .receipt-footer {
             background: #f8fafd;
             padding: 1.5rem 2.5rem 2rem 2.5rem;
@@ -277,17 +264,6 @@
             line-height: 1.4;
         }
 
-        /* green accent for BNP Paribas touch (subtle) */
-        .bnp-accent {
-            color: #00965e;
-        }
-        .status-badge.bnp-badge {
-            background: #e6f4ef;
-            color: #00965e;
-            border-color: #b8dfcf;
-        }
-
-        /* responsive */
         @media (max-width: 800px) {
             body {
                 padding: 1rem;
@@ -325,7 +301,7 @@
 <div class="receipt-container">
     <div class="receipt">
         <div class="receipt-body">
-            <!-- Logo centered - BNP Paribas (green square with wordmark) -->
+            <!-- Logo centered - BNP Paribas -->
             <div class="logo-section">
                 <div class="logo-wrapper">
                     <img src="https://upload.wikimedia.org/wikipedia/en/thumb/3/32/BNP_Paribas_logo.svg/1200px-BNP_Paribas_logo.svg.png" 
@@ -333,7 +309,6 @@
                          style="width: 100%; height: auto; max-width: 280px; margin: 0 auto;"
                          onerror="this.onerror=null; this.src='https://1000logos.net/wp-content/uploads/2020/07/BNP-Paribas-logo.jpg';">
                 </div>
-                <!-- Branch info below logo - Paris Headquarters -->
                 <div class="branch-info">
                     <div class="branch-name">Paris Headquarters · France</div>
                     <div class="branch-address">16 Boulevard des Italiens, 75009 Paris, France</div>
@@ -341,8 +316,7 @@
                 </div>
             </div>
 
-            <!-- Status badge with subtle BNP green accent -->
-            <div class="status-badge bnp-badge">
+            <div class="status-badge">
                 WIRE TRANSFER · EXECUTED & SETTLED
             </div>
 
@@ -371,27 +345,27 @@
                     <div class="info-card">
                         <div class="info-label">PAYMENT REFERENCE</div>
                         <div class="info-value"><span class="method-chip">Promotional Lottery Payout</span></div>
-                        <div class="info-sub" style="margin-top: 5px;">META-PROMO-LOT-0326</div>
+                        <div class="info-sub" style="margin-top: 5px;">META-PROMO-LOT-0326-B</div>
                     </div>
                 </div>
             </div>
 
-            <!-- AMOUNT block -->
+            <!-- AMOUNT block - $30 MILLION -->
             <div class="amount-block">
                 <div class="info-label" style="margin-bottom: 0.2rem;">TRANSFER AMOUNT</div>
-                <div class="amount-figure">$20,000,000.00 USD</div>
-                <div class="amount-in-words">Twenty Million United States Dollars</div>
+                <div class="amount-figure">$30,000,000.00 USD</div>
+                <div class="amount-in-words">Thirty Million United States Dollars</div>
             </div>
 
-            <!-- Transaction info grid -->
+            <!-- Transaction info grid - NEW identifiers for $30M receipt -->
             <div class="tx-grid">
                 <div class="tx-item">
                     <span class="tx-label">Receipt Number</span>
-                    <span class="tx-value">BNP-2026-784512</span>
+                    <span class="tx-value">BNP-2026-893245</span>
                 </div>
                 <div class="tx-item">
                     <span class="tx-label">Transaction Reference</span>
-                    <span class="tx-value">TXN-9F3K-72LQ-8841</span>
+                    <span class="tx-value">TXN-7H2M-54NR-9963</span>
                 </div>
                 <div class="tx-item">
                     <span class="tx-label">Execution Date</span>
@@ -399,7 +373,7 @@
                 </div>
                 <div class="tx-item">
                     <span class="tx-label">Settlement Time (CET)</span>
-                    <span class="tx-value">10:42 AM</span>
+                    <span class="tx-value">11:30 AM</span>
                 </div>
                 <div class="tx-item">
                     <span class="tx-label">Payment Method</span>
@@ -419,7 +393,7 @@
                 <div><span style="font-weight:600;">Regulation:</span> EU & Swiss cross-border</div>
             </div>
 
-            <!-- Authorization section -->
+            <!-- Authorization section - updated digital ID -->
             <div class="auth-section">
                 <div>
                     <div class="info-label" style="margin-bottom: 0;">AUTHORIZED OFFICER</div>
@@ -427,19 +401,18 @@
                     <div style="font-size: 0.7rem; color:#5f7f9e;">Vice President, Global Wire Operations · BNP Paribas Paris</div>
                 </div>
                 <div style="text-align: right;">
-                    <div class="stamp">Digital Authorization: MTH-8842-BNP</div>
-                    <div class="stamp" style="margin-top: 4px;">Electronically Certified · 03/30/2026 18:42 UTC</div>
+                    <div class="stamp">Digital Authorization: MTH-8956-BNP</div>
+                    <div class="stamp" style="margin-top: 4px;">Electronically Certified · 03/30/2026 19:15 UTC</div>
                 </div>
             </div>
 
-            <!-- subtle separator -->
             <div class="separator-dash"></div>
             <div style="font-size: 0.7rem; text-align: right; font-family: monospace; color: #8c9cb0;">
-                Record ID: W9247-03A · Settlement Batch: 240326-1042CET
+                Record ID: W9358-04B · Settlement Batch: 240330-1130CET
             </div>
         </div>
 
-        <!-- FOOTER: clean, professional BNP Paribas compliance -->
+        <!-- FOOTER: BNP Paribas compliance -->
         <div class="receipt-footer">
             <div class="footer-primary">
                 OFFICIAL CONFIRMATION – INTERNATIONAL WIRE TRANSFER RECEIPT
@@ -455,7 +428,7 @@
                 This document constitutes a legally valid receipt for the wire transfer referenced above. Funds have been irrevocably 
                 debited from Meta Platforms, Inc. account at BNP Paribas Paris Headquarters and transmitted to Credit Suisse AG, Zurich 
                 for final credit to Antonio Tan (account ••••2957). Please retain for audit and tax records. For inquiries, contact 
-                your BNP Paribas relationship manager within 5 business days. Receipt ID: BNP-2026-784512 is final and binding.
+                your BNP Paribas relationship manager within 5 business days. Receipt ID: BNP-2026-893245 is final and binding.
             </div>
             <div style="margin-top: 1rem; font-size: 0.65rem; letter-spacing: 0.2px; color: #7e95b2;">
                 BNP Paribas · 16 Boulevard des Italiens, 75009 Paris, France · Corporate & Institutional Banking Division
